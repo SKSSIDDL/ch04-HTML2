@@ -1,0 +1,31 @@
+<!-- 
+do~whlie문
+html 목록처리 할 때 do~while 쓰는게 제일 이상적
+그 외엔 dowhile 그닥 안 쓴다함
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>do~while</title>
+<script type="text/javascript">
+	var value=0;
+	
+	while(value++ < 5){
+		document.write(value + '번째 반복문<br>'); //1~5까지 출력
+	}
+	document.write('-------------------------<br>');
+	
+	value = 0;
+	
+	do{
+		document.write(value + '번째 반복문<br>');	//0~5까지 출력	
+	}while(value++ < 5);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

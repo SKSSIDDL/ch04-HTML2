@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>반복문을 이용해서 객체의 속성 읽기</title>
+</head>
+<body>
+<script type="text/javascript">
+	//객체 정의
+	const product = {
+			//속성(key:value)
+			name : 'eclipse',
+			price : '10,000원',
+			language : '한국어',
+			supportOS : 'win10',
+			subscription : true
+	}; //비어있게 만들고 속성 추가/삭제 가능
+	
+	//반복문을 이용한 속성 읽기
+	for(let key in product){ //key가 반환하는 것 : 'name','price','language'(문자열 반환)
+//		document.write(key + ':' + product.key + '<br>'); //value가 undefined로 오류, product.key는 key라는 문자열을 반환
+		document.write(key + ':' + product[key] + '<br>');
+	}
+	//for in 반복문을 이용해서 속성에 접근할 때는 객체로부터 key를 문자열로 반환받기 때문에 객체명[문자열 key] 형식으로 속성에 접근할 수 있음
+	
+</script>
+</body>
+</html>

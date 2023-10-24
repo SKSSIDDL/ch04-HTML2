@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>실습</title>
+</head>
+<body>
+<script type="text/javascript">
+/*
+ [실습]- 상속 불가능 - prototype만 상속 가능
+ 생성자 함수(Account)를 이용해서 은행 계좌 생성하는 프로그램
+ 속성 : 계좌번호, 예금주, 비밀번호, 잔고
+ 매서드 : 입금 메서드(deposite), 출금 메서드(withdraw), 출력 메서드(toString)
+ 실행 순서 -> 계좌 생성, 입금하기, 출금하기, 은행 정보 출력
+ [출력 예시]
+ 계좌번호 : 010123
+ 예금주 : 홍길동
+ 잔고 : 1000원
+ */
+ 
+ 	function Account(accnum,name,passwd,balance){
+	 	//속성 정의
+	 	this.계좌번호 = accnum;
+	 	this.예금주 = name;
+	 	this.비밀번호 = passwd;
+	 	this.잔고 = balance;
+	 	
+	 	//메서드 정의
+	 	this.deposite = function(money){
+	 		this.잔고 += money;
+	 	};
+	 	
+	 	this.withdraw = function(money){
+	 		this.잔고 -= money;
+	 	};
+	 	
+	 	this.toString = function(){ //반환하는 값이 있기 때문에 return 사용
+	 		return '계좌번호 : '+ this.계좌번호 + '<br>'+
+	 			   '예금주 : ' + this.예금주 + '<br>'+
+	 			   '잔고 : ' + this.잔고 + '원';
+	 	};
+	 }
+ 	
+ 	//객체 생성
+ 	const account = new Account('010123','홍길동','1234',1000); //명시적으로 객체 생성
+ 	document.write(account + '<br>');
+ 	document.write('------------------------<br>');
+ 	
+ 	//입금하기
+ 	account.deposite(500);
+ 	document.write(account + '<br>');
+ 	document.write('------------------------<br>');
+
+ 	//출금하기
+ 	account.withdraw(600);
+ 	document.write(account + '<br>');
+ 	document.write('------------------------<br>');
+
+ 	
+</script>
+</body>
+</html>
