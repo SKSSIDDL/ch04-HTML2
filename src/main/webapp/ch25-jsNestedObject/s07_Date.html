@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Date</title>
+<script type="text/javascript">
+//윈도우가 로드될 때 호출(span태그를 인식하기 위해 사용)
+window.onload=function(){
+	//일정 시간마다 매개변수로 전달된 함수를 반복해서 실행
+	setInterval(function(){
+		const time = new Date();
+		let hours = time.getHours();
+		let minutes = time.getMinutes();
+		let seconds = time.getSeconds();
+		
+		let clock = ''; //다 누적시킬 빈 문자열
+		clock += ((hours < 10) ? '0' : '') + hours; //한 자리와 두자리를 구분
+		clock += ((minutes < 10) ? ':0' : ':') + minutes;
+		clock += ((seconds < 10) ? ':0' : ':') + seconds;
+		
+		//span을 호출해서 시간을 span태그의 내용으로 표시
+		document.getElementById('display').innerHTML = clock; 
+		//span태그를 탐색 후 비어있는 내용 부분을 제어하는데, innerHTML이 내용을 제어해서 계속 초단위로 시간이 바뀌는 시계로 완성!	
+	},1000);
+};
+</script>
+</head>
+<body>
+	<span id="display"></span>
+</body>
+</html>

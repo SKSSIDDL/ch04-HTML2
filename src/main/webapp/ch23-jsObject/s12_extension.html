@@ -37,7 +37,7 @@
 	
 	//Human의 프로토타입에 정의된 속성 또는 메서드를 상속시킴
 	Student.prototype = Human.prototype; //생성자 명이 Human으로 바뀜
-	Student.prototype.constructor = Student; //생성자 명을 Student로 다시 유지
+	Student.prototype.constructor = Student; //생성자 명을 Student로 다시 유지(없어도 무관)
 	
 	const student = new Student(50);
 	

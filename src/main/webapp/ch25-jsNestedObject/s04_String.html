@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이메일 체크</title>
+</head>
+<body>
+	<form name="form1">
+																			<!-- 읽기 전용 -->
+		id : <input type="text" name="id" placeholder="아이디는 이메일에서 추출" readonly="readonly">
+		Email : <input type="text" name="email"><br>
+		<input type="button" value="입력" onclick="check()">
+		
+		<script type="text/javascript">
+			function check(){
+				let email = document.form1.email.value;
+				let n = email.indexOf('@'); //@의 위치값을 반환
+				if(n>0){ //@앞에 적어도 하나의 문자가 있어야하기 때문에 조건체크
+					document.form1.id.value = email.substr(0,n);
+													//시작인덱스,추출할 문자 개수
+				}else{
+					document.form1.email.value = '';
+					alert('이메일 형식에 맞게 입력하세요!');
+				}
+			}
+		</script>
+	</form>
+</body>
+</html>
