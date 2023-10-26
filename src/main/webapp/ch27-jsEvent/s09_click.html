@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>click 이벤트</title>
+<script type="text/javascript">
+	window.onload = function(){
+		let notice = document.getElementById('yumu');
+		let radioes = document.getElementsByTagName('input');
+		
+		for(let i=0; i<radioes.length; i++){
+			//이벤트 연결
+			radioes[i].onclick = function(){ //첫번째 radio버튼 선택
+				if(radioes[0].checked){
+					//div 숨기기
+					notice.style.display = 'none';
+				}else{ //두번째 radio버튼 선택
+					//div 표시하기
+					notice.style.display = '';
+				}
+			};
+		}		
+	};
+</script>
+</head>
+<body>
+	<form>
+		<!-- 이벤트 소스 : 이벤트가 발생하는 태그 -->
+		<input type="radio" name="price" checked value="0">무료
+		<input type="radio" name="price" value="1">유료
+	</form>
+	<div id="yumu" style="display:none;">
+		유료회원 가입비는 10,000원입니다.
+	</div>
+</body>
+</html>

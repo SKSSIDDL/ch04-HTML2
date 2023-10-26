@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 전달</title>
+<script type="text/javascript">
+/*
+ * 이벤트 전달(파) : 특정 태그에 이벤트가 발생하면 다른 태그로 이벤트가 전달되는 현상
+ 이벤트 버블링 : 자식노드에서 부모노드 순으로 이벤트를 실행하는 것을 의미(거의 모든 브라우저)
+ 	div
+ 	 |			^ 자식 노드에서 부모 노드로 이벤트 전파
+ 	div			|
+ 	 |			|
+ 	 p			|
+ 	 |			|
+ 	 span <---이벤트 발생
+ 	 
+ 이벤트 캡쳐링 : 부모노드에서 자식노드 순으로 이벤트를 실행하는 것을 의미(지원 잘 안함)
+ 
+ */
+ 
+ 	window.onload = function(){
+		//이벤트 연결1
+		document.getElementById('space').onclick = function(){
+			alert('space');
+			this.style.backgroundColor = 'pink';
+		};
+		//이벤트 연결2
+		document.getElementById('paragraph').onclick = function(event){
+			alert('paragraph');
+			this.style.backgroundColor = 'yellow';
+			
+			//이벤트 전달 차단(자식쪽에서 실행->부모쪽에서는 실행되지 않게 만들기 위해 실행)
+			event.stopPropagation();
+		};
+ 	};
+</script>
+</head>
+<body>
+	<div id="space">Space
+		<p id="paragraph">Paragraph</p>
+	</div>
+</body>
+</html>

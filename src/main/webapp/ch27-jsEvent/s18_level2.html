@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>표준 이벤트 모델</title>
+<script type="text/javascript">
+	/*
+	DOM Level2 표준 이벤트 모델(메서드)
+	addEventListener(eventType,eventHandler,useCapture) : 이벤트 연결
+	removeEventListener(eventTyep,eventHandler) : 이벤트 제거
+	*/
+	
+	window.addEventListener('load',function(){
+		let header = document.getElementById('header');
+		
+		//이벤트 연결
+		header.addEventListener('click',function(){
+			alert('CLICK');
+		},false); //false가 생략되도 동작상의 문제가 있진 않음
+	},false);
+</script>
+</head>
+<body>
+	<h1 id="header">Click</h1>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>mouseover, mouserout 이벤트</title>
+<script type="text/javascript">
+	window.onload = function(){
+		let alink = document.getElementsByTagName('a');
+		let bigImg = document.getElementById('bigImg');
+		
+		for(let i=0; i<alink.length; i++){
+			//이벤트 연결(2개)
+			alink[i].onmouseover = function(){
+				//img태그 표시하기
+				bigImg.style.display='';
+				
+				//큰 이미지 읽기(a태그 읽어오기-이벤트가 발생한 태그를 불러올 땐 this 사용)
+				bigImg.src = this.href; //이벤트가 발생한 태그(a)의 href 속성값(큰 이미지 경로) 반환
+				
+				//크기 줄이기
+				bigImg.width = 500;
+				bigImg.height = 350;
+			};
+			alink[i].onmouseout = function(){
+				//img태그 숨기기
+				bigImg.style.display='none';
+			};
+			
+			//클릭이 되지 않게 만들기
+			alink[i].onclick = function(){
+				//a태그의 링크 기능(기본 이벤트) 제거
+				return false;
+			};
+		}
+	};
+	
+</script>
+</head>
+<body>
+	<div>
+		<!-- 			큰 이미지 경로							작은 이미지 경로					 -->
+		<a href="../files/Penguins.jpg"><img src="../files/Penguins.jpg" width="83" height="83" alt="작은 펭귄 이미지"></a>
+		<a href="../files/Koala.jpg"><img src="../files/Koala.jpg" width="83" height="83" alt="작은 코알라 이미지"></a>
+	</div>
+	<div>
+		<img id="bigImg" style="display:none;"> <!-- 기본적으로 보여지지 않음 -->
+	</div>
+</body>
+</html>

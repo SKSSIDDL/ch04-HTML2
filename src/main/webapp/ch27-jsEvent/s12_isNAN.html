@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>isNaN함수 활용</title>
+<script type="text/javascript">
+	window.onload = function(){
+		//이번트 연결
+		document.getElementById('check_age').onclick = function(){
+			let age = document.getElementById('age');
+			
+			//공백 제거를 위해 trim() 메서드를 사용함
+			if(age.value.trim()==''){ //입력 안함 or 공백만 입력
+				alert('[나이를 입력하세요]');
+				age.value=''; //공백이 있다면 공백을 제거
+				age.foucs();
+				return; //이벤트 핸들러를 빠져나감 , 전송이 되지않게(return false)
+			}
+			//isNaN 문자인지 숫자인지 체크
+			if(isNaN(age.value)){ //true
+				alert('[숫자만 입력 가능합니다]');
+				age.value='';
+				age.focus();
+				return;
+			}
+			
+			alert('나이는 '+age.value+'살 입니다.');
+		};
+	};
+</script>
+</head>
+<body>
+	<form>
+		<input type="text" name="age" id="age" size="20">
+		<input type="button" value="나이 확인" id="check_age">
+	</form>
+</body>
+</html>
