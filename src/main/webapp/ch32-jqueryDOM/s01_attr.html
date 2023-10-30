@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){ //=$(document).ready(function(){});
+		//하나의 속성을 제어
+			   //속성세팅(속성,속성값)
+		//$('img').attr('width',100);
+		
+		//복수의 속성을 제어
+		//$('img'.attr('width',150).attr('height',150));
+		//$('img').attr({width:200,height:200});
+		
+		//하나의 속성을 제어하는데 각각의 태그에 다른 값 설정
+		/*
+		$('img').attr('width',function(index){
+			return (index+1)*100; //0-100, 1-200. 2-300
+		});
+		*/
+		
+		//복수의 속성을 제어하는데 각각의 태그에 다른 값 설정
+		$('img').attr({width:function(index){
+						return (index+1)*100;
+					  },height:function(index){
+						return (index+1)*100;
+					  }
+		});
+	});	
+</script>
+</head>
+<body>
+	<img src="../files/blue.jpg">
+	<img src="../files/flower.jpg">
+	<img src="../files/winter.jpg">
+</body>
+</html>

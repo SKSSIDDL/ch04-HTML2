@@ -11,7 +11,7 @@
 <script type="text/javascript">
 	window.onload = function(){
 		let canvas = document.getElementById('canvas');
-		if(canvas.getContext){ // 있으면 true
+		if(canvas.getContext){ // 있으면 true(붓 역할)
 			let context = canvas.getContext('2d');
 			context.fillStyle = 'rgb(200,0,0)'; //색상을 지정
 			context.fillRect(0,0,100,100); //사각형 x,y,width,height
@@ -19,7 +19,7 @@
 			context.fillRect(150,150,100,100); //사각형 x,y,width,height
 			
 			//투명도 조절
-			context.fillStyle = 'rgb(0,0,200,0.5)'; //생상 및 알파값 지정(0.0 완전 투명 ~ 1.0 완전 불투명)
+			context.fillStyle = 'rgba(0,0,200,0.5)'; //색상 및 알파값 지정(0.0 완전 투명 ~ 1.0 완전 불투명)
 			context.fillRect(150,200,100,100); //사각형 x,y,width,height
 			
 		}else{//없으면 false
