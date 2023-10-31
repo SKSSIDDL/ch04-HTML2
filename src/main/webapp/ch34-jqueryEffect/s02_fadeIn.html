@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>fadeIn</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){ 
+		$('#btn1').on('click',function(){
+			$('#dog').fadeIn('slow'); //0.6초동안 선명해짐
+		});
+		
+		$('#btn2').on('click',function(){
+			$('#dog').fadeOut(1000); //1초동안 투명해짐
+		});
+		
+		$('#btn3').on('click',function(){
+			$('#dog').fadeToggle('fast'); //1초동안 투명해짐
+		});
+	});	
+</script>
+</head>
+<body>
+	<button id="btn1">fadeIn</button>
+	<button id="btn2">fadeOut</button>
+	<button id="btn3">fadeToggle</button>
+	<br>
+	<img id="dog" src="../files/다운로드.jpg" width="120" height="100" style="display:none">
+</body>
+</html>

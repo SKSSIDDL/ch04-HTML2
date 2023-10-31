@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery-CSS</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){ //=$(document).ready(function(){});
+		//prop() : 선택한 요소의 속성을 반환/생성/변화(attr보다 호환범휘 넓음)
+		$('#st_1').prop('title','단락 태그'); //title 속성 넣기
+		$('#txt1').text($('#st_1').prop('title')); //태그의 내용 제어, html허용X, title속성의 값 반환
+		$('#txt2').text($('#st_1').prop('tagName')); //태그명 반환
+		$('#txt3').text($('#sel').prop('selectedIndex'));//select태그의 선택한 option의 index
+	});	
+</script>
+</head>
+<body>
+	<p id="st_1">내용1</p>
+	<p id="txt1"></p>
+	<p id="txt2"></p>
+	<select id="sel">
+		<option value="naver">네이버</option> 
+		<option value="daum" selected="selected">다음</option>
+		<option value="nate">네이트</option>
+	</select>
+	<p id="txt3"></p>
+</body>
+</html>

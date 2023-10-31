@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>append</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){ 
+		const content = [
+			{name:'홍길동', region:'서울시'},
+			{name:'박문수', region:'부산시'},
+			{name:'장영실', region:'인천시'}
+		];
+		
+		let output ='';
+		$.each(content,function(index,item){
+			output += '<div>';
+			output += '<h2>' + item.name + '</h2>';
+			output += '<span>' + item.region + '</span>';
+			output += '</div>';
+		});
+		
+		$('#output').append(output); //만든 output을 id=output으로 넣기 
+	});	
+</script>
+</head>
+<body>
+	<div id="output"></div>
+</body>
+</html>

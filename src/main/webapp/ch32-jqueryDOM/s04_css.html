@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css</title>
+<style type="text/css">
+	.first{
+		color:red;
+	}
+	.second{
+		color:pink;
+	}
+	.third{
+		color:orange;
+	}
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){ //=$(document).ready(function(){});
+		let color = $('h1').css('color'); 
+		//아래 h1태그에 접근(배열로 인식->가장 위에 h1의 스타일 속성값 반환)	
+		alert(color);	
+	});	
+</script>
+</head>
+<body>
+	<h1 class="first">Header-0</h1>
+	<h1 class="second">Header-1</h1>
+	<h1 class="third">Header-2</h1>
+</body>
+</html>

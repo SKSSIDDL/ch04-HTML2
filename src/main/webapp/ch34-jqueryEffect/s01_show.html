@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>show/hide</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){ 
+		$('#btn1').on('click',function(){
+			//보여질 떄 속도 값 : fast(200-0.2초), normal(400-0.4초), slow(600-0.6초), 밀리세컨드 지정 가능
+			$('#dog').show('slow',function(){ //effect가 완료되면 호출되는 함수
+				alert('노출 완료!');
+			});
+		});
+		
+		$('#btn2').on('click',function(){
+			$('#dog').hide(1000,function(){
+				alert('숨기기 완료!');
+			});
+		});
+		
+		$('#btn3').on('click',function(){
+			$('#dog').toggle('slow'); //선택한 요소가 보이면 숨기고, 숨겨져 있으면 보이게 처리
+		});
+	});	
+</script>
+</head>
+<body>
+	<button id="btn1">Show</button>
+	<button id="btn2">Hide</button>
+	<button id="btn3">Toggle</button>
+	<br>
+	<img id="dog" src="../files/dog.png" width="120" height="100" style="display:none">
+</body>
+</html>
