@@ -1,280 +1,575 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<!-- 모바일 장치에서 웹 사이트가 원하는 사이즈로 보여지게 처리 -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>제주항공</title>
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
-<style type="text/css">
-	.logo{
-		width:300px;
-		height:60px;
-		padding:50px;
-		float:left;
-	}
-	.navbar{
-		justify-content:space-between;
-		align-items:center;
-		background-color:white;
-		padding:50px;
-	}
-	.carousel-inner{
-		float:both;
-	}
-	#header{
-	justify-content:space-between;
-	text-align:right;
-	list-style:none;
-	display:inline;
-	width:100%;
-	height:500px;
-	}
 
-</style>
-</head>
-<body>
-<div class="container">
-	<div id="header">
-		<header>
-			<nav>
-				<ul id="main_nav"> <!-- 일반적으로 id는 _ class는 -를 많이 씀 -->
-					<li><a href="#signin">로그인</a></li>
-					<li><a href="#signup">회원가입</a></li>
-					<li><a href="#reservation">나의 예약 현황</a></li>
-					<li><a href="#cs">고객센터</a></li>
-					<li><a href="#notice">공지사항</a></li>
-				</ul>
-			</nav>
-		</header>		
-	</div>
+<head>
+	<meta charset="UTF-8">
+	<!-- 모바일 장치에서 웹 사이트가 원하는 사이즈로 보여지게 처리 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>제주항공</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+	<style type="text/css">
+		.logo {
+			width: 300px;
+			height: 60px;
+			padding: 50px;
+			float: left;
+		}
+
+		.navbar {
+			justify-content: space-between;
+			align-items: center;
+			background-color: white;
+			padding: 50px;
+
+		}
+
+		.carousel-inner {
+			float: both;
+		}
+
+		.main_nav {
+			list-style: none;
+		}
+
+		#header {
+			justify-content: space-between;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			text-decoration-line: none;
+		}
+
+		.header-item {
+			float: left;
+			font-size:10px;
+			padding: 8px;
+			text-decoration-line: none;
+		}
+
+		.main_nav::after {
+			display: block;
+			clear: both;
+			text-decoration-line: none;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+		.card {
+			border-radius: 15px;
+			display: inline-block;
+			margin-left: 30px;
+			margin-bottom: 30px;
+			position: relative;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+			overflow: hidden;
+		}
+
+		.dropdown-menu li {
+			text-align: center;
+			font-size: 16px;
+		}
+
+		a:hover {
+			background-color: orangred;
+		}
+
+		.ticketing-type {
+			justify-content: space-between;
+			display: inline;
+			list-style: none;
+		}
+
+		.item {
+			float: left;
+		}
+
+		.carosel-item img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: auto;
+			height: 150%;
+		}
+
+		.ticketing-type li {
+			padding: 5px;
+		}
+
+		.ticketing-target {
+			padding: 10px;
+		}
+
+		.foot-about-list {
+			justify-content: space-between;
+			display: inline-block;
+			list-style: none;
+
+		}
+
+		h4 {
+			font-size: 15pt;
+			font-weight: bold;
+			margin-top: 30px;
+			margin-left: 30px;
+			margin-bottom: 30px;
+		}
+
+
+		.reservation-item {
+			text-align: center;
+			font-size: 16px;
+		}
+
+		hr {
+			color: darkorange;
+		}
+
+		#benefit {
+			border-style:1px solid pink;
+			border-radius: 15px;
+			display: inline-block;
+		}
+
+		.card-img-top {
+			overflow: hidden;
+		}
+
+		.footer-line {
+			color: lightgray;
+		}
+
+		.footer-list li {
+			justify-content: space-between;
+			display: inline;
+			list-style: none;
+			float: left;
+			margin-right: 20px;
+		}
+
+		.address {
+			display: inline;
+		}
+
+		#footer {
+			font-size: 9px;
+		}
+
+		.header-reservation {
+			position:fixed;
+			border : 1px solid orange;
+			border-radius: 15px;
+			width: 100%;
+			background-position: center;
+			position: relative;
+			text-align: center;
+			box-shadow: 0 2px 2px 0 rgb(255, 218, 172), 0 4px 7px 0 rgb(255, 218, 172);
+		}
 		
+		.btn{
+			background-color: white;
+			color: orange;
+			border-radius: 10px;
+			border-color:orange;
+			margin-bottom:20px;
+
+		}
+		
+		#input2{
+			margin-bottom:15px;
+		}
+		
+		.selectSeat{
+			margin-bottom:10px;
+		}
+		
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div id="header">
+			<header>
+				<nav>
+					<ul class="nav justify-content-end">
+						<li class="header-item"><a href="#signin">로그인</a></li>
+						<li class="header-item"><a href="#signup">회원가입</a></li>
+						<li class="header-item"><a href="#reservation">나의 예약 현황</a></li>
+						<li class="header-item"><a href="#cs">고객센터</a></li>
+						<li class="header-item"><a href="#notice">공지사항</a></li>
+					</ul>
+				</nav>
+			</header>
+		</div>
+		<hr>
 		<div class="logo">
-   			<img src="../files/logo.png">
-   		</div>
-  <!-- 상단 네비게이션 시작 -->
-   <nav class="navbar">
-   		<div class="container-fluid"> <!-- fluid->공간이 있으면 다 채움 -->
-   			<a class="navbar-brand" href="#"></a>
-   			
-   			<!-- 모바일 메뉴 아이콘 시작 -->
-   			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-				<span class="navbar-toggler-icon"></span>   			
-   			</button>
-   			<!-- 모바일 메뉴 아이콘 끝 -->
-   			
-   			<!-- 메뉴 시작 -->
-   			<div class="collapse navbar-collapse" id="navbarContent">
-   				<!-- 메뉴 -->
-   				<ul class="navbar-nav .col-mb-5 mb-md-0">
-   					<li class="nav-item">
-   						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
-   							항공권 예매
-   						</a> 
-   						<ul class="dropdown-menu">
-   							<li><a href="#" class="dropdown-item">항공권 예약</a></li>
-   							<li><a href="#" class="dropdown-item">최저가 간편조회</a></li>
-   							<li><a href="#" class="dropdown-item">신용카드 혜택</a></li>
-   							<li><a href="#" class="dropdown-item">예약 안내</a></li>
-   							<li><a href="#" class="dropdown-item">운임 안내</a></li>
-   						</ul>
-   					</li>
-   					<li class="nav-item">
-   						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
-   							마이페이지
-   						</a> 
-   						<ul class="dropdown-menu">
-   							<li><a href="#" class="dropdown-item">마이페이지 메인</a></li>
-   							<li><a href="#" class="dropdown-item">예약 조회</a></li>
-   							<li><a href="#" class="dropdown-item">나의 예약 현황</a></li>
-   							<li><a href="#" class="dropdown-item">나의 탑승 내역</a></li>
-   							<li><a href="#" class="dropdown-item">회원정보 수정</a></li>
-   							<li><a href="#" class="dropdown-item">나의 이벤트</a></li>
-   						</ul>
-   					</li>
-   					<li class="nav-item">
-   						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
-   							부가서비스 안내
-   						</a> 
-   						<ul class="dropdown-menu">
-   							<li><a href="#" class="dropdown-item">부가서비스 소개</a></li>
-   							<li><a href="#" class="dropdown-item">사전 수하물</a></li>
-   							<li><a href="#" class="dropdown-item">좌석 구매</a></li>
-   							<li><a href="#" class="dropdown-item">사전 기내식</a></li>
-   							<li><a href="#" class="dropdown-item">여행자 보혐</a></li>
-   							<li><a href="#" class="dropdown-item">부가서비스 번들</a></li>
-   							<li><a href="#" class="dropdown-item">나중에 결제</a></li>
-   							<li><a href="#" class="dropdown-item">자전거 캐링백 서비스</a></li>
-   							<li><a href="#" class="dropdown-item">제주패스</a></li>
-   						</ul>
-   					</li>
-   					<li class="nav-item">
-   						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
-   							모바일 탑승권
-   						</a> 
-   						<ul class="dropdown-menu">
-   							<li><a href="#" class="dropdown-item">탑승수속 안내</a></li>
-   							<li><a href="#" class="dropdown-item">모바일 탑승권</a></li>
-   							<li><a href="#" class="dropdown-item">수하물</a></li>
-   							<li><a href="#" class="dropdown-item">빠른 수속</a></li>
-   							<li><a href="#" class="dropdown-item">공항 정보</a></li>
-   							<li><a href="#" class="dropdown-item">고움이 필요한 고객</a></li>
-   						</ul>
-   					</li>
-   					<li class="nav-item">
-   						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
-   							이벤트
-   						</a> 
-   						<ul class="dropdown-menu">
-   							<li><a href="#" class="dropdown-item">진행중인 이벤트</a></li>
-   							<li><a href="#" class="dropdown-item">지난 이벤트</a></li>
-   						</ul>
-   					</li>
-   				</ul>
-   			</div>
-   			<!-- 메뉴 끝 -->
-   		</div>
-   </nav>
-   <!-- 상단 네비게이션 끝 -->
-   
-   
-    <!-- 중앙 캐러셀 시작 -->
-   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-         <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button> <!-- 첫번째 버튼이 0/ 첫 시작(active) -->
-         <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button> 
-         <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button> 
-         <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3"></button> 
-         <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="4"></button> 
-         <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="5"></button> 
-         <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="6"></button> 
-      </div>
-      <div class="carousel-inner">
-         <!-- 0 이미지 시작 -->
-         <div class="carousel-item active">
-            <img src="../files/사진1.png" class="d-block w-100"> <!-- w-100: 이미지 넓이 지정 -->
-            <div class="carousel-caption">
-	               <a href="#">자세히 보기</a>
-            </div>
-         </div>
-         <!-- 0 이미지 끝 -->
-         <!-- 1 이미지 시작 -->
-         <div class="carousel-item">
-            <img src="../files/사진2.png" class="d-block w-100"> <!-- w-100: 이미지 넓이 지정 -->
-            <div class="carousel-caption">
-                <a href="#">자세히 보기</a>
-            </div>
-         </div>
-         <!-- 1 이미지 끝 -->
-         <!-- 2 이미지 시작 -->
-         <div class="carousel-item">
-            <img src="../files/사진3.png" class="d-block w-100"> <!-- w-100: 이미지 넓이 지정 -->
-            <div class="carousel-caption">
-                <a href="#">자세히 보기</a>
-            </div>
-         </div>
-         <!-- 2 이미지 끝 -->
-         <!-- 3 이미지 시작 -->
-         <div class="carousel-item">
-            <img src="../files/사진4.png" class="d-block w-100"> <!-- w-100: 이미지 넓이 지정 -->
-            <div class="carousel-caption">
-                <a href="#">자세히 보기</a>
-            </div>
-         </div>
-         <!-- 3 이미지 끝 -->
-         <!-- 4 이미지 시작 -->
-         <div class="carousel-item">
-            <img src="../files/사진5.png" class="d-block w-100"> <!-- w-100: 이미지 넓이 지정 -->
-            <div class="carousel-caption">
-                <a href="#">자세히 보기</a>
-            </div>
-         </div>
-         <!-- 4 이미지 끝 -->
-         <!-- 5 이미지 시작 -->
-         <div class="carousel-item">
-            <img src="../files/사진6.png" class="d-block w-100"> <!-- w-100: 이미지 넓이 지정 -->
-            <div class="carousel-caption">
-               <a href="#">자세히 보기</a>
-            </div>
-         </div>
-         <!-- 5 이미지 끝 -->
-         <!-- 6 이미지 시작 -->
-         <div class="carousel-item">
-            <img src="../files/사진7.png" class="d-block w-100"> <!-- w-100: 이미지 넓이 지정 -->
-            <div class="carousel-caption">
-               <a href="#">자세히 보기</a>
-            </div>
-         </div>
-         <!-- 6 이미지 끝 -->
-      </div> <!-- end of .carousel-inner -->
-      
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev"> <!-- data-bs 어쩌구 js랑 연동하는거임 -->
-         <span class="carousel-control-prev-icon"></span>
-         <span class="visually-hidden">Previous</span> <!-- 보여지진 않고 그냥 버튼 설명으로 넣을거임 -->
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next"> 
-         <span class="carousel-control-next-icon"></span>
-         <span class="visually-hidden">Next</span> <!-- 보여지진 않고 그냥 버튼 설명으로 넣을거임 -->
-      </button>
-      
-   </div>
-   <!-- 중앙 캐러셀 끝 -->
-   
-   <!-- 중앙 카드 그룹 시작 -->
-   <br>
-   <h4>추천 항공권</h4>
-   		<div class="card-group">
-   			<!-- 카드시작 -->
-   			<div class="card">
-   				<img src="../files/마닐라.jpg" class="card-img-top">
-   				<div class="card-body">
-   					<h5 class="card-title">인천-마닐라</h5>
-   					<p class="card-text">편도총액 <strong>179,200원~</strong></p>
-   					<p class="card-text">2023.12.01~2023.12.31</p>
-   					<a href="#" class="btn btn-secondary">더보기</a>
-   				</div>
-   			</div>
-   			<!-- 카드끝 -->
-   			
-   			<!-- 카드시작 -->
-   			<div class="card">
-   				<img src="../files/보홀.JPG" class="card-img-top">
-   				<div class="card-body">
-   					<h5 class="card-title">인천-보홀</h5>
-   					<p class="card-text">편도총액 <strong>168,200원~</strong></p>
-   					<p class="card-text">2023.12.01~2023.12.31</p>
-   					<a href="#" class="btn btn-secondary">더보기</a>
-   				</div>
-   			</div>
-   			<!-- 카드끝 -->
-   			
-   			<!-- 카드시작 -->
-   			<div class="card">
-   				<img src="../files/홍콩.jpg" class="card-img-top">
-   				<div class="card-body">
-   					<h5 class="card-title">인천-홍콩</h5>
+			<img src="../files/logo.png">
+		</div>
+	</div>
+	<!-- 상단 네비게이션 시작 -->
+	<nav class="navbar">
+		<div class="container-fluid"> <!-- fluid->공간이 있으면 다 채움 -->
+			<a class="navbar-brand" href="#"></a>
+
+			<!-- 모바일 메뉴 아이콘 시작 -->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<!-- 모바일 메뉴 아이콘 끝 -->
+
+			<!-- 메뉴 시작 -->
+			<div class="collapse navbar-collapse" id="navbarContent">
+				<!-- 메뉴 -->
+				<ul class="navbar-nav .col-mb-5 mb-md-0">
+					<li class="nav-item">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
+							항공권 예매
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="dropdown-item">항공권 예약</a></li>
+							<li><a href="#" class="dropdown-item">최저가 간편조회</a></li>
+							<li><a href="#" class="dropdown-item">신용카드 혜택</a></li>
+							<li><a href="#" class="dropdown-item">예약 안내</a></li>
+							<li><a href="#" class="dropdown-item">운임 안내</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
+							마이페이지
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="dropdown-item">마이페이지 메인</a></li>
+							<li><a href="#" class="dropdown-item">예약 조회</a></li>
+							<li><a href="#" class="dropdown-item">나의 예약 현황</a></li>
+							<li><a href="#" class="dropdown-item">나의 탑승 내역</a></li>
+							<li><a href="#" class="dropdown-item">회원정보 수정</a></li>
+							<li><a href="#" class="dropdown-item">나의 이벤트</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
+							부가서비스 안내
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="dropdown-item">부가서비스 소개</a></li>
+							<li><a href="#" class="dropdown-item">사전 수하물</a></li>
+							<li><a href="#" class="dropdown-item">좌석 구매</a></li>
+							<li><a href="#" class="dropdown-item">사전 기내식</a></li>
+							<li><a href="#" class="dropdown-item">여행자 보혐</a></li>
+							<li><a href="#" class="dropdown-item">부가서비스 번들</a></li>
+							<li><a href="#" class="dropdown-item">나중에 결제</a></li>
+							<li><a href="#" class="dropdown-item">자전거 캐링백 서비스</a></li>
+							<li><a href="#" class="dropdown-item">제주패스</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
+							모바일 탑승권
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="dropdown-item">탑승수속 안내</a></li>
+							<li><a href="#" class="dropdown-item">모바일 탑승권</a></li>
+							<li><a href="#" class="dropdown-item">수하물</a></li>
+							<li><a href="#" class="dropdown-item">빠른 수속</a></li>
+							<li><a href="#" class="dropdown-item">공항 정보</a></li>
+							<li><a href="#" class="dropdown-item">고움이 필요한 고객</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
+							이벤트
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="dropdown-item">진행중인 이벤트</a></li>
+							<li><a href="#" class="dropdown-item">지난 이벤트</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<!-- 메뉴 끝 -->
+		</div>
+	</nav>
+
+	<!-- 상단 네비게이션 끝 -->
+
+	<!-- 중앙 캐러셀 시작 -->
+	<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+			<!-- 첫번째 버튼이 0/ 첫 시작(active) -->
+			<button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+			<button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+			<button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3"></button>
+			<button type="button" data-bs-target="#carouselExample" data-bs-slide-to="4"></button>
+			<button type="button" data-bs-target="#carouselExample" data-bs-slide-to="5"></button>
+			<button type="button" data-bs-target="#carouselExample" data-bs-slide-to="6"></button>
+		</div>
+		<div class="carousel-inner">
+			<!-- 0 이미지 시작 -->
+			<div class="carousel-item active"
+				style="background-image: url(https://static.jejuair.net/cms/images/banner_image/20231101090208240.png);">
+				<img src="../files/사진1.png" class="d-block w-100"> <!-- w-100: 이미지 넓이 지정 -->
+				<div class="carousel-caption">
+					<a href="#">자세히 보기</a>
+				</div>
+			</div>
+			<!-- 0 이미지 끝 -->
+			<!-- 1 이미지 시작 -->
+			<div class="carousel-item"
+				style="background-image: url(https://static.jejuair.net/cms/images/banner_image/20231027170119445.png);">
+				<img src="../files/사진2.png" class="d-block w-100"> <!-- w-100: 이미지 넓이 지정 -->
+				<div class="carousel-caption">
+					<a href="#">자세히 보기</a>
+				</div>
+			</div>
+			<!-- 1 이미지 끝 -->
+			<!-- 2 이미지 시작 -->
+			<div class="carousel-item"
+				style="background-image: url(https://static.jejuair.net/cms/images/banner_image/20231025172523685.jpg);">
+				<img src="../files/사진3.png" class="d-block w-100"> <!-- w-100: 이미지 넓이 지정 -->
+				<div class="carousel-caption">
+					<a href="#">자세히 보기</a>
+				</div>
+			</div>
+			<!-- 2 이미지 끝 -->
+			<!-- 3 이미지 시작 -->
+			<div class="carousel-item"
+				style="background-image: url(https://static.jejuair.net/cms/images/banner_image/20231025085950280.jpg);">
+				<img src="../files/사진4.png" class="d-block w-100"> <!-- w-100: 이미지 넓이 지정 -->
+				<div class="carousel-caption">
+					<a href="#">자세히 보기</a>
+				</div>
+			</div>
+			<!-- 3 이미지 끝 -->
+			<!-- 4 이미지 시작 -->
+			<div class="carousel-item"
+				style="background-image: url(https://static.jejuair.net/cms/images/banner_image/20230116141336968.jpg);">
+				<img src="../files/사진5.png" class="d-block w-100"> <!-- w-100: 이미지 넓이 지정 -->
+				<div class="carousel-caption">
+					<a href="#">자세히 보기</a>
+				</div>
+			</div>
+			<!-- 4 이미지 끝 -->
+			<!-- 5 이미지 시작 -->
+			<div class="carousel-item"
+				style="background-image: url(https://static.jejuair.net/cms/images/banner_image/20220831110955969.jpg);">
+				<img src="../files/사진6.png" class="d-block w-100"> <!-- w-100: 이미지 넓이 지정 -->
+				<div class="carousel-caption">
+					<a href="#">자세히 보기</a>
+				</div>
+			</div>
+			<!-- 5 이미지 끝 -->
+			<!-- 6 이미지 시작 -->
+			<div class="carousel-item"
+				style="background-image: url(https://static.jejuair.net/cms/images/main_ind_domain/20230414140039217.jpg);">
+				<img src="../files/사진7.png" class="d-block w-100"> <!-- w-100: 이미지 넓이 지정 -->
+				<div class="carousel-caption">
+					<a href="#">자세히 보기</a>
+				</div>
+			</div>
+			<!-- 6 이미지 끝 -->
+		</div>
+		<!-- end of .carousel-inner -->
+
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+			<span class="carousel-control-next-icon"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
+
+	</div>
+	<!-- 중앙 캐러셀 끝 -->
+	<hr>
+
+	<div class="container">
+		<div class="header-reservation">
+			<div class="frame">
+				<div class="sub-frame">
+					<h4>여정/날짜 선택</h4>
+					<div class="journey" id="journey">
+						<input type="radio" class="radio-input" name="journey" id="round-trip" autocomplete="off"
+							checked required>
+						<label class="radio-label" for="round-trip">왕복</label>
+
+						<input type="radio" class="radio-input" name="journey" id="one-way" autocomplete="off" required>
+						<label class="radio-label" for="one-way">편도</label>
+					</div>
+					<br>
+					<div style="display: flex;">
+						<div class="txt_field" style="width:33%">
+							<label><b>출발지</b>></label>
+							<br>
+							<select style="background: #fff;">
+								<option value="">대한민국</option>
+								<option value="">동북아시아</option>
+								<option value="">동남아시아</option>
+								<option value="">러시아/몽골</option>
+								<option value="">괌/사이판</option>
+							</select>
+						</div>
+						<div class="txt_field" style="width:33%">
+							<label><b>도착지</b></label>
+							<br>
+							<select style="background: #fff;">
+								<option value="">대한민국</option>
+								<option value="">동북아시아</option>
+								<option value="">동남아시아</option>
+								<option value="">러시아/몽골</option>
+								<option value="">괌/사이판</option>
+							</select>
+							<span></span>
+						</div>
+						<div class="txt_field" style="width:33%">
+							<label><b>탑승일</b></label>
+							<br>
+							<input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+							<span></span>
+						</div>
+					</div>
+					
+					<hr>
+					
+					<h4>좌석 등급 선택</h4>
+					<select class="selectSeat">
+						<option value="">Preffered Seating</option>
+						<option value="">Economy Class</option>
+						<option value="">Business Class</option>
+						<option value="">First Class</option>
+					</select>
+					<br>
+					<div>
+						<div id="input2"><!--input2-->
+							<input type="number" id="input-group" placeholder="Adult">
+							<input type="number" id="input-group" placeholder="Children(2-11years)">
+							<input type="number" id="input-group" placeholder="infant(under 2years)">
+						</div><!--input2-->
+
+						<button type="submit" class="btn">Submit Form</button>
+						<button type="reset" class="btn">Clear Form</button>
+						<br>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 중앙 카드 그룹 시작 -->
+	<br>
+
+	<div class="container">
+		<h4>추천 항공권</h4>
+		<div class="card-group">
+			<!-- 카드시작 -->
+			<div class="card">
+				<img src="../files/마닐라.jpg" class="card-img-top">
+				<div class="card-body">
+					<h5 class="card-title">인천-마닐라</h5>
+					<p class="card-text">편도총액 <strong>179,200원~</strong></p>
+					<p class="card-text">2023.12.01~2023.12.31</p>
+					<a href="#" class="btn btn-secondary">더보기</a>
+				</div>
+			</div>
+			<!-- 카드끝 -->
+
+			<!-- 카드시작 -->
+			<div class="card">
+				<img src="../files/보홀.JPG" class="card-img-top">
+				<div class="card-body">
+					<h5 class="card-title">인천-보홀</h5>
+					<p class="card-text">편도총액 <strong>168,200원~</strong></p>
+					<p class="card-text">2023.12.01~2023.12.31</p>
+					<a href="#" class="btn btn-secondary">더보기</a>
+				</div>
+			</div>
+			<!-- 카드끝 -->
+
+			<!-- 카드시작 -->
+			<div class="card">
+				<img src="../files/홍콩.jpg" class="card-img-top">
+				<div class="card-body">
+					<h5 class="card-title">인천-홍콩</h5>
 					<p class="card-text">편도총액 <strong>157,900원~</strong></p>
-   					<p class="card-text">2023.12.01~2023.12.31</p>   					
-   					<a href="#" class="btn btn-secondary">더보기</a>
-   				</div>
-   			</div>
-   			<!-- 카드끝 -->
-   			
-   			<!-- 카드시작 -->
-   			<div class="card">
-   				<img src="../files/히로시마.jpg" class="card-img-top">
-   				<div class="card-body">
-   					<h5 class="card-title">인천-히로시마</h5>
-   					<p class="card-text">편도총액 <strong>98,400원~</strong></p>
-   					<p class="card-text">2023.12.01~2023.12.31</p>
-   					<a href="#" class="btn btn-secondary">더보기</a>
-   				</div>
-   			</div>
-   			<!-- 카드끝 -->
-   		</div>
-   <!-- 중앙 카드 그룹 끝 -->
- </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+					<p class="card-text">2023.12.01~2023.12.31</p>
+					<a href="#" class="btn btn-secondary">더보기</a>
+				</div>
+			</div>
+			<!-- 카드끝 -->
+
+			<!-- 카드시작 -->
+			<div class="card">
+				<img src="../files/히로시마.jpg" class="card-img-top">
+				<div class="card-body">
+					<h5 class="card-title">인천-히로시마</h5>
+					<p class="card-text">편도총액 <strong>98,400원~</strong></p>
+					<p class="card-text">2023.12.01~2023.12.31</p>
+					<a href="#" class="btn btn-secondary">더보기</a>
+				</div>
+			</div>
+			<!-- 카드끝 -->
+		</div>
+		<!-- 중앙 카드 그룹 끝 -->
+
+		<!-- 회원혜택 이미지 시작 -->
+		<h4>회원혜택</h4>
+		<div class="benefit">
+			<img src="../files/회원혜택.png" class="d-block w-100" id="benefit"> <!-- w-100: 이미지 넓이 지정 -->
+			<div class="benefit-cpation">
+				<a href="회원혜택"></a>
+			</div>
+		</div>
+		<!-- 회원혜택 이미지 끝 -->
+	</div>
+
+	<hr>
+	<!-- footer 시작 -->
+	<div class="container">
+		<footer id="footer">
+			<div class="layout">
+				<div class="foot-left">
+					<ul class="link">
+					</ul>
+					<div class="foot-info">
+						<ul class="footer-list">
+							<li><a href="#">항공교통이용자 서비스 계획</li>
+							<li><a href="#">항공교통이용자 피해구제 계획</li>
+							<li><a href="#">항공위험물 안내</li>
+						</ul>
+						<br>
+						<hr class="footer-line">
+
+						<div class="foot-right">
+							<ul class="foot-about-list">
+								<li class="more"><a href="/sub0901">이용약관</a></li>
+								<li class="more"><a href="/sub0902">여객운송약관</a></li>
+								<li class="more"><a href="/sub0701"><strong>개인정보처리방침</strong></a></li>
+								<li class="more"><a href="/sub0803">항공교통이용자 서비스 계획</a></li>
+								<li class="more"><a href="/sub0806">항공교통이용자 피해구제 계획</a></li>
+							</ul>
+						</div>
+						<hr class="footer-line">
+						<address class="address">제주특별자치도 제주시 신대로 64(연동, 건설공제회관 3층)</address>
+						<br>
+						<a href="고객센터 1599-1500 (09:00~19:00)">TEL 042-600-6000</a>
+						<br>
+						<a href="mailto:reserve@hotelinterciti.com">E-MAIL reserve@hotelinterciti.com</a>
+					</div>
+					<p class="copy"><em>&copy; 2023</em><span>JEJUAIR</span> ALL RIGHTS RESERVED.</p>
+				</div>
+			</div>
+			<hr>
+
+		</footer>
+	</div>
+	<!-- footer 끝 -->
+	<hr>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+		type="text/javascript"></script>
 </body>
+
 </html>
